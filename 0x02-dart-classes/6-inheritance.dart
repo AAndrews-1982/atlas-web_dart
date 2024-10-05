@@ -43,7 +43,7 @@ class User extends Password {
   @override
   String toString() {
     bool isPasswordValid = isValid(); // Call isValid() from Password class
-    return 'User(id: $id ,name: $name, age: $age, height: $height, Password: $isPasswordValid)';
+    return 'User(id : $id ,name: $name, age: $age, height: $height, Password: $isPasswordValid)';
   }
 }
 
