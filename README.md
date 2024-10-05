@@ -15,11 +15,11 @@ Read or watch:
 - #### Dart documentation
 - Link: https://dart.dev/guides
 
-##### - Write command-line apps - 
+- #### Write command-line apps - 
 Link: https://dart.dev/tutorials/server/cmdline
 
-##### - Dart compile
+- ##### Dart compile
 - Link: https://dart.dev/tools/dart-compile
 
-##### - Dart Pad
+- #### Dart Pad
 - Link: https://dartpad.dev
