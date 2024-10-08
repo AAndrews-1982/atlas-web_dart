@@ -27,7 +27,7 @@ Future<double> calculateTotal() async {
     }
 
     // Return the total price rounded to 1 decimal place
-    return double.parse(total.toStringAsFixed(1));
+    return total;
   } catch (error) {
     // If any error occurs, return -1 and print the error
     print('Error caught: $error');
