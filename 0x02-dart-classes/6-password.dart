@@ -13,7 +13,7 @@ class Password {
 
   // Method to check if the password is valid
   bool isValid() {
-    if (_password == null || _password!.length < 8 || _password!.length > 16) {
+    if (_password == null || _password!.isEmpty || _password!.length < 8 || _password!.length > 16) {
       return false;
     }
 

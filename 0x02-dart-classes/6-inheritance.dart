@@ -5,7 +5,6 @@ class User extends Password {
   String name;
   int age;
   double height;
-  String? user_password;
 
   // Constructor
   User({
@@ -13,9 +12,15 @@ class User extends Password {
     required this.name,
     required this.age,
     required this.height,
-    String? user_password, // Pass user_password to parent class Password
-  }) : super(password: user_password) {
-    this.user_password = user_password;
+    String? user_password,
+  }) : super(password: user_password);
+
+ // Getter for user_password
+  String? get user_password => password;  // Access password from the parent class
+
+  // Setter for user_password that updates the password in the parent class
+  set user_password(String? value) {
+    password = value;  // Update the password in the Password class
   }
 
   // Method to return a JSON representation of the User
@@ -35,7 +40,7 @@ class User extends Password {
       name: userJson['name'] ?? '',
       age: userJson['age'] ?? 0,
       height: userJson['height'] ?? 0.0,
-      user_password: userJson['user_password'] ?? '',
+      user_password: userJson['password'] ?? '',
     );
   }
 
