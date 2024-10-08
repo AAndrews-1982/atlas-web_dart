@@ -24,7 +24,7 @@ Future<double> calculateTotal() async {
       print('Fetching price for product: $product'); // Debugging log
       String priceData = await fetchProductPrice(product);
       print('Price Data: $priceData'); // Debugging log
-      double price = jsonDecode(priceData);
+      double price = (jsonDecode(priceData) as num).toDouble();
       total += price;
     }
 
