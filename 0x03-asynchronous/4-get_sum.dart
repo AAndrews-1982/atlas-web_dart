@@ -1,31 +1,30 @@
-import 'dart:convert'; // For JSON decoding
-import '4-util.dart';  // Import utility functions
+import '4-util.dart';
+import 'dart:convert';
 
 // Function to calculate the total price of items for a user
-Future<double> calculateTotal() async {
+Future<dynamic> calculateTotal() async {
   try {
+    double price = 0;
+
     // Step 1: Fetch the user data and extract the user ID
-    String userData = await fetchUserData();
-    Map<String, dynamic> user = jsonDecode(userData);
-    String userId = user['id'];
+    final String userDataStr = await fetchUserData();
+    final Map<String, dynamic> userData = json.decode(userDataStr);
+    final String userId = userData['id'];
 
     // Step 2: Fetch the user orders based on user ID
-    String ordersData = await fetchUserOrders(userId);
-    List<dynamic> orders = jsonDecode(ordersData);
-
+    final String userOrderStr = await fetchUserOrders(userId);
+    final List<dynamic> userOrder = json.decode(userOrderStr);
+    
     // Step 3: Fetch the price of each product in the user's orders
-    double total = 0.0;
-    for (var item in orders) {
-      String priceData = await fetchProductPrice(item);
-      double price = (jsonDecode(priceData) as num).toDouble();
-      total += price;
+    for (var orderId in userOrder) {
+      final String productPriceStr = await fetchProductPrice(orderId);
+      price += double.parse(productPriceStr);
     }
-
     // Return the total price
-    return total;
-  } catch (error) {
+    return price;
+  } catch (e) {
     // If any error occurs, return -1.0
-    return -1.0;
+    int error = -1;
+    return error;
   }
 }
-
